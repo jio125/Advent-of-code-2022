@@ -1,16 +1,20 @@
 //
-// Created by Jiovanni Ortiz-Anglero on 12/2/22.
+// Created by Jiovanni Ortiz-Anglero on 12/1/22.
 //
 
-#ifndef ADVENT_OF_CODE_2022_ELF_H
-#define ADVENT_OF_CODE_2022_ELF_H
+#ifndef DAY1_ELF_H
+#define DAY1_ELF_H
 
-
+#include <vector>
+using std::vector;
 
 class elf {
-
+private:
+    vector<int> items;
+public:
+    void addItem(int cals);
+    int getSum();
 };
 
 
-
-#endif //ADVENT_OF_CODE_2022_ELF_H
+#endif //DAY1_ELF_H
