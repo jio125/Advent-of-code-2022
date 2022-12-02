@@ -20,6 +20,7 @@
 #include <iostream>
 using std::cout, std::cin, std::endl;
 #include <fstream>
+#include <chrono>
 
 int main(){
     //Setup input file
@@ -31,6 +32,9 @@ int main(){
 
     char opponentMove, myMove;
     int totalScore = 0;
+
+    //Time execution stuff
+    auto start1 = std::chrono::steady_clock::now(); //start time
 
     inFile >> opponentMove;
     inFile >> myMove;
@@ -70,11 +74,17 @@ int main(){
         inFile >> myMove;
     }
 
+    auto end1 = std::chrono::steady_clock::now(); //end time
+    auto diff1 = end1 - start1;
+
     cout << "My puzzle 1 total score is: " << totalScore << endl;
+    cout << std::chrono::duration<double,std::milli>(diff1).count() << "ms to execute" << endl;
 
     //Go through the file again using the correct decoding method (Puzzle 2)
     inFile.close();
     inFile.open("input.txt");
+
+    auto start2 = std::chrono::steady_clock::now(); //start time
 
     //reset variables
     totalScore = 0;
@@ -128,7 +138,11 @@ int main(){
         inFile >> outcome;
     }
 
-    cout << "My puzzle 2 total score is: " << totalScore << endl;
+    auto end2 = std::chrono::steady_clock::now(); //end time
+    auto diff2 = end2 - start2;
+
+    cout << endl << "My puzzle 2 total score is: " << totalScore << endl;
+    cout << std::chrono::duration<double,std::milli>(diff2).count() << "ms to execute" << endl;
 
     return 0;
 }
