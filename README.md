@@ -8,4 +8,6 @@ Repository for Advent of Code 2022
 
 See Subdirectories for each day's puzzles and my solutions
 
-Everything is written in C++ using the CLion IDE 
+Everything is written in C++
+
+We'll see how far I get...
