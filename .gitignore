@@ -4,5 +4,3 @@ cmake-build-debug/
 /build/
 /.idea/
 .vscode
-main.dSYM
-main
