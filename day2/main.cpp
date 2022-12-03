@@ -25,7 +25,7 @@ using std::cout, std::cin, std::endl;
 int main(){
     //Setup input file
     std::ifstream inFile("input.txt");
-    if(inFile.bad()){
+    if(!inFile.is_open()){
         cout << "Cannot open file" << endl;
         return -1;
     }

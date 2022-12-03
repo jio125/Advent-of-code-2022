@@ -1,3 +1,8 @@
-/cmake-build-debug/
+cmake-build-debug/
 /main.cpp
 /CMakeLists.txt
+/build/
+/.idea/
+.vscode
+main.dSYM
+main
