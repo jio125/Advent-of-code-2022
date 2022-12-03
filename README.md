@@ -4,7 +4,7 @@
 ![Stars Badge](https://img.shields.io/badge/stars%20⭐-4-yellow)
 ![Days Completed Badge](https://img.shields.io/badge/days%20completed-2-red)
 
-Repository for Advent of Code 2022
+Repository for [Advent of Code 2022](https://adventofcode.com/)
 
 See Subdirectories for each day's puzzles and my solutions
 
