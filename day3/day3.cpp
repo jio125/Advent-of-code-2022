@@ -14,9 +14,21 @@ using std::string;
 using std::cout, std::cin, std::endl;
 using std::ifstream;
 
-int main(){
+#include "day3.h"
+
+int day3_all(){
+    
+    day3_part1();
+    day3_part2();
+    day3_part2_newMethod();
+
+    return 0;
+}
+
+int day3_part1(){
+    cout << "Running Day 3 Part 1..." << endl;
     //open file
-    ifstream inFile("input.txt");
+    ifstream inFile("day3/input.txt");
     if(!inFile.is_open()){
         cout << "Could not open file" << endl;
         return -1;
@@ -30,8 +42,6 @@ int main(){
         sacks.push_back(currSack);
         inFile >> currSack;
     }
-
-    auto start = std::chrono::steady_clock::now(); //start time
 
     int totalPriority = 0;
     for(const auto& sack : sacks){
@@ -53,16 +63,34 @@ int main(){
         }
     }
 
-    auto end = std::chrono::steady_clock::now(); //end time
-    auto diff = end - start;
-
     cout << "Total priority for part 1 is: " << totalPriority << endl;
-    cout << std::chrono::duration<double,std::milli>(diff).count() << "ms to execute" << endl;
 
-    //Part 2
-    totalPriority = 0;
+    inFile.close();
 
-    start = std::chrono::steady_clock::now(); //start time
+    return 0;
+}
+
+int day3_part2(){
+    cout << "Running Day 3 Part 2..." << endl;
+    //open file
+    ifstream inFile("day3/input.txt");
+    if(!inFile.is_open()){
+        cout << "Could not open file" << endl;
+        return -1;
+    }
+
+    vector<string> sacks;
+    string currSack;
+
+    inFile >> currSack;
+    while(!inFile.eof()){
+        sacks.push_back(currSack);
+        inFile >> currSack;
+    }
+
+    inFile.close();
+
+    int totalPriority = 0;
 
     for(int i = 0; i < sacks.size(); i +=3){
         set<char> s1;
@@ -88,14 +116,32 @@ int main(){
         }
     }
 
-    end = std::chrono::steady_clock::now(); //end time
-    diff = end - start;
+    cout << "Total priority for part 2 is: " << totalPriority << endl;
 
-    cout << endl << "Total priority for part 2 is: " << totalPriority << endl;
-    cout << std::chrono::duration<double,std::milli>(diff).count() << "ms to execute" << endl;
+    return 0;
+}
 
-    totalPriority = 0;
-    start = std::chrono::steady_clock::now(); //start time
+int day3_part2_newMethod(){
+    cout << "Running Day 3 Part 2 New Method..." << endl;
+    //open file
+    ifstream inFile("day3/input.txt");
+    if(!inFile.is_open()){
+        cout << "Could not open file" << endl;
+        return -1;
+    }
+
+    vector<string> sacks;
+    string currSack;
+
+    inFile >> currSack;
+    while(!inFile.eof()){
+        sacks.push_back(currSack);
+        inFile >> currSack;
+    }
+
+    inFile.close();
+
+    int totalPriority = 0;
 
     //Try without using sets
     for(int i = 0; i < sacks.size(); i +=3){
@@ -130,11 +176,7 @@ int main(){
         }
     }
 
-    end = std::chrono::steady_clock::now(); //end time
-    diff = end - start;
-
-    cout << endl << "Total priority for part 2 new method is: " << totalPriority << endl;
-    cout << std::chrono::duration<double,std::milli>(diff).count() << "ms to execute" << endl;
+    cout << "Total priority for part 2 new method is: " << totalPriority << endl;
 
     return 0;
 }

@@ -22,9 +22,18 @@ using std::cout, std::cin, std::endl;
 #include <fstream>
 #include <chrono>
 
-int main(){
+#include "day2.h"
+
+int day2_all(){
+    day2_part1();
+    day2_part2();
+    return 0;
+}
+
+int day2_part1(){
+    cout << "Running Day 2 Puzzle 1..." << endl;
     //Setup input file
-    std::ifstream inFile("input.txt");
+    std::ifstream inFile("day2/input.txt");
     if(!inFile.is_open()){
         cout << "Cannot open file" << endl;
         return -1;
@@ -32,9 +41,6 @@ int main(){
 
     char opponentMove, myMove;
     int totalScore = 0;
-
-    //Time execution stuff
-    auto start1 = std::chrono::steady_clock::now(); //start time
 
     inFile >> opponentMove;
     inFile >> myMove;
@@ -74,21 +80,23 @@ int main(){
         inFile >> myMove;
     }
 
-    auto end1 = std::chrono::steady_clock::now(); //end time
-    auto diff1 = end1 - start1;
-
     cout << "My puzzle 1 total score is: " << totalScore << endl;
-    cout << std::chrono::duration<double,std::milli>(diff1).count() << "ms to execute" << endl;
-
-    //Go through the file again using the correct decoding method (Puzzle 2)
     inFile.close();
-    inFile.open("input.txt");
+    
+    return 0;
+}
 
-    auto start2 = std::chrono::steady_clock::now(); //start time
+int day2_part2(){
+    cout << "Running Day 2 Puzzle 2..." << endl;
+    //Setup input file
+    std::ifstream inFile("day2/input.txt");
+    if(!inFile.is_open()){
+        cout << "Cannot open file" << endl;
+        return -1;
+    }
 
-    //reset variables
-    totalScore = 0;
-    opponentMove = '\0';
+    int totalScore = 0;
+    char opponentMove = '\0';
     char outcome;
 
     inFile >> opponentMove;
@@ -138,11 +146,7 @@ int main(){
         inFile >> outcome;
     }
 
-    auto end2 = std::chrono::steady_clock::now(); //end time
-    auto diff2 = end2 - start2;
-
-    cout << endl << "My puzzle 2 total score is: " << totalScore << endl;
-    cout << std::chrono::duration<double,std::milli>(diff2).count() << "ms to execute" << endl;
+    cout << "My puzzle 2 total score is: " << totalScore << endl;
 
     return 0;
 }
