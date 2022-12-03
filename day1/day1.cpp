@@ -7,9 +7,11 @@ using std::string;
 using std::cout, std::cin, std::endl;
 
 #include "elf.h"
+#include "day1.h"
 
-int main() {
-    std::ifstream inFile("input.txt");
+int day1() {
+    cout << "Running Day 1 Puzzles 1 and 2..." << endl;
+    std::ifstream inFile("day1/input.txt");
     if(!inFile.is_open()){
         cout << "Cannot read file" << endl;
         return -1;
@@ -49,8 +51,8 @@ int main() {
         }
     }
 
-    cout << "The largest number of calories is: " << max << endl;
-    cout << "Sum of the three largest number of calories is: " << max + second + third << endl;
+    cout << "Puzzle 1: The largest number of calories is: " << max << endl;
+    cout << "Puzzle 2: Sum of the three largest number of calories is: " << max + second + third << endl;
 
     return 0;
 }
