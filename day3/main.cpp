@@ -31,7 +31,7 @@ int main(){
         inFile >> currSack;
     }
 
-    auto start1 = std::chrono::steady_clock::now(); //start time
+    auto start = std::chrono::steady_clock::now(); //start time
 
     int totalPriority = 0;
     for(const auto& sack : sacks){
@@ -53,16 +53,16 @@ int main(){
         }
     }
 
-    auto end1 = std::chrono::steady_clock::now(); //end time
-    auto diff1 = end1 - start1;
+    auto end = std::chrono::steady_clock::now(); //end time
+    auto diff = end - start;
 
     cout << "Total priority for part 1 is: " << totalPriority << endl;
-    cout << std::chrono::duration<double,std::milli>(diff1).count() << "ms to execute" << endl;
+    cout << std::chrono::duration<double,std::milli>(diff).count() << "ms to execute" << endl;
 
     //Part 2
     totalPriority = 0;
 
-    auto start2 = std::chrono::steady_clock::now(); //start time
+    start = std::chrono::steady_clock::now(); //start time
 
     for(int i = 0; i < sacks.size(); i +=3){
         set<char> s1;
@@ -88,11 +88,53 @@ int main(){
         }
     }
 
-    auto end2 = std::chrono::steady_clock::now(); //end time
-    auto diff2 = end2 - start2;
+    end = std::chrono::steady_clock::now(); //end time
+    diff = end - start;
 
     cout << endl << "Total priority for part 2 is: " << totalPriority << endl;
-    cout << std::chrono::duration<double,std::milli>(diff2).count() << "ms to execute" << endl;
+    cout << std::chrono::duration<double,std::milli>(diff).count() << "ms to execute" << endl;
+
+    totalPriority = 0;
+    start = std::chrono::steady_clock::now(); //start time
+
+    //Try without using sets
+    for(int i = 0; i < sacks.size(); i +=3){
+        string s1;
+        string s2;
+        for(char item : sacks.at(i)){
+            auto found = s1.find(item);
+            if(found == string::npos){ //if the char is not in the string
+                s1.push_back(item);
+            }
+        }
+        for (char item : sacks.at(i+1)) {
+            auto found = s2.find(item);
+            if(found == string::npos){
+                s2.push_back(item);
+            }
+        }
+        for (char item : sacks.at(i+2)){
+            auto find1 = s1.find(item);
+            auto find2 = s2.find(item);
+            if(find1 != string::npos && find2 != string::npos){
+                if(item >= 'a'){
+                    item -= 96;
+                    totalPriority += item;
+                }
+                else if(item >= 'A'){
+                    item = item - 64 + 26;
+                    totalPriority += item;
+                }
+                break;
+            }
+        }
+    }
+
+    end = std::chrono::steady_clock::now(); //end time
+    diff = end - start;
+
+    cout << endl << "Total priority for part 2 new method is: " << totalPriority << endl;
+    cout << std::chrono::duration<double,std::milli>(diff).count() << "ms to execute" << endl;
 
     return 0;
 }
