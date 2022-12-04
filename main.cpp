@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstring>
 #include "advent_of_code.h"
 
 using std::cout, std::cin, std::endl;
