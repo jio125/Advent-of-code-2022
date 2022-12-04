@@ -5,6 +5,8 @@ name: Update Badges
 on:
   schedule:
     - cron: '32 6 1-26 12 *'
+  workflow_dispatch:
+    
 
 jobs:
   update:
