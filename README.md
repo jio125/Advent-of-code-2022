@@ -30,6 +30,6 @@ Compile:
 
 Run:
 
-`Advent_of_code <Day> <Puzzle>`
+`./build/Advent_of_code <Day> <Puzzle>`
 
 - See each day's subfolder for instructions on how to run specific puzzles
