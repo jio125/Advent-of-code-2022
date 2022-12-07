@@ -32,4 +32,6 @@ Run:
 
 `./build/Advent_of_code <Day> <Puzzle>`
 
+`./build/Advent_of_code -h` for help.
+
 - See each day's subfolder for instructions on how to run specific puzzles
