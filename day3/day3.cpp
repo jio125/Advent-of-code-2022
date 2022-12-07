@@ -92,7 +92,7 @@ int day3_part2(){
 
     int totalPriority = 0;
 
-    for(int i = 0; i < sacks.size(); i +=3){
+    for(unsigned long i = 0; i < sacks.size(); i +=3){
         set<char> s1;
         set<char> s2;
         for(char item : sacks.at(i)){
@@ -144,7 +144,7 @@ int day3_part2_newMethod(){
     int totalPriority = 0;
 
     //Try without using sets
-    for(int i = 0; i < sacks.size(); i +=3){
+    for(unsigned long i = 0; i < sacks.size(); i +=3){
         string s1;
         string s2;
         for(char item : sacks.at(i)){

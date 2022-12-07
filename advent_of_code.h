@@ -9,4 +9,6 @@
 #include "day3/day3.h"
 #include "day4/day4.h"
 
+#include "day6/day6.h"
+
 #endif //ADVENT_OF_CODE_H

@@ -8,3 +8,4 @@ target_sources(Advent_of_code PRIVATE day1/day1.cpp day1/day1.h day1/elf.h day1/
 target_sources(Advent_of_code PRIVATE day2/day2.h day2/day2.cpp)
 target_sources(Advent_of_code PRIVATE day3/day3.h day3/day3.cpp)
 target_sources(Advent_of_code PRIVATE day4/day4.h day4/day4.cpp)
+target_sources(Advent_of_code PRIVATE day6/day6.h day6/day6.cpp)
