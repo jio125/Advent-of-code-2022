@@ -30,6 +30,7 @@ private:
 public:
     directory(string n, directory* parent = nullptr) : name(n), parentDirectory(parent) {}
     void addSubdirectory(directory*);
+    vector<directory*>& getSubdirectories(void) {return subDirectories;}
     void addFile(file);
     void setParent(directory*);
     directory* getParent() {return parentDirectory;}

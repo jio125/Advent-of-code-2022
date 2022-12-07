@@ -6,17 +6,21 @@
 #include <vector>
 
 using std::cin, std::cout, std::endl;
-using std::fstream;
+using std::ifstream;
 using std::vector;
 
-int day7_part1(){
-    fstream inFile("../day7/test.txt");
-    if(!inFile.is_open()){
-        cout << "Could not open file." << endl;
-        return -1;
+void searchFilesystem(directory* dir, vector<directory*> &foundDirectories){
+    if(!dir->getSubdirectories().empty()){
+        for(auto& subDirectory : dir->getSubdirectories()){
+            searchFilesystem(subDirectory, foundDirectories);
+        }
     }
+    foundDirectories.push_back(dir);
+    return;
+}
 
-    directory* root = new directory("root");
+directory* readFilesystem(ifstream &inFile){
+    directory* root = new directory("/");
     directory* currDirectory = root;
 
     string currLine;
@@ -61,12 +65,67 @@ int day7_part1(){
         getline(inFile, currLine);
     }
 
-    cout << "Done reading file." << endl;
+    return root;
+}
+
+int day7_part1(){
+    cout << "Running Day 7 Part 1..." << endl;
+    ifstream inFile("day7/input.txt");
+    if(!inFile.is_open()){
+        cout << "Could not open file." << endl;
+        return -1;
+    }
+
+    directory* root = readFilesystem(inFile);
+
+    vector<directory*> directories;
+    int maxSize = 100000; 
+
+    searchFilesystem(root, directories);
+
+    int sum = 0;
+    for(const auto& dir : directories){
+        if(dir->getSize() <= maxSize){
+            sum += dir->getSize();
+        }
+    }
+
+    cout << "Sum of directories with a maximum size of " << maxSize << ": " << sum << endl;
 
     return 0;
 }
 
 int day7_part2(){
+    cout << "Running Day 7 Part 2..." << endl;
+    ifstream inFile("day7/input.txt");
+    if(!inFile.is_open()){
+        cout << "Could not open file." << endl;
+        return -1;
+    }
+
+    directory* root = readFilesystem(inFile);
+
+    vector<directory*> directories;
+    searchFilesystem(root, directories);
+
+    int totalDiskSpace = 70000000;
+    int diskSpaceRemaining = totalDiskSpace - root->getSize();
+    int diskSpaceNeeded = 30000000;
+    int minSizeToDelete = diskSpaceNeeded - diskSpaceRemaining;
+    directory* dirToDelete = nullptr;
+
+    for(const auto& dir : directories){
+        if(dir->getSize() >= minSizeToDelete){
+            if(dirToDelete && dirToDelete->getSize() > dir->getSize()){
+                dirToDelete = dir;
+            }
+            else if(dirToDelete == nullptr){
+                dirToDelete = dir;
+            }
+        }
+    }
+
+    cout << "Size of directory to delete: " << dirToDelete->getSize() << endl;
 
     return 0;
 }
