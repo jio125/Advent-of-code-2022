@@ -4,6 +4,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <chrono>
 
 using std::cin, std::cout, std::endl;
 using std::ifstream;
@@ -14,6 +15,7 @@ using std::string;
 
 int day8_part1(){
     cout << "Running Day 8 Part 1..." << endl;
+    auto start = std::chrono::steady_clock::now();
     ifstream inFile("day8/input.txt");
     if(!inFile.is_open()){
         cout << "Could not open file." << endl;
@@ -93,13 +95,18 @@ int day8_part1(){
         }
     }
 
+    auto end = std::chrono::steady_clock::now();
+    auto diff = end - start;
+
     cout << "Number of trees visible from the outside is: " << numVisible << endl;
+    cout << "Finished in " << std::chrono::duration <double, std::milli> (diff).count() << " ms" << endl;
 
     return 0;
 }
 
 int day8_part2(){
     cout << "Running Day 8 Part 2..." << endl;
+    auto start = std::chrono::steady_clock::now();
     ifstream inFile("day8/input.txt");
     if(!inFile.is_open()){
         cout << "Could not open file." << endl;
@@ -176,7 +183,11 @@ int day8_part2(){
         }
     }
 
+    auto end = std::chrono::steady_clock::now();
+    auto diff = end - start;
+
     cout << "Max visibility score is: " << max << endl;
+    cout << "Finished in " << std::chrono::duration <double, std::milli> (diff).count() << " ms" << endl;
 
     return 0;
 }

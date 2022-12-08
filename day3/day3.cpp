@@ -8,6 +8,8 @@
 #include <vector>
 #include <chrono>
 #include <set>
+#include <chrono>
+
 using std::set;
 using std::vector;
 using std::string;
@@ -27,6 +29,7 @@ int day3_all(){
 
 int day3_part1(){
     cout << "Running Day 3 Part 1..." << endl;
+    auto start = std::chrono::steady_clock::now();
     //open file
     ifstream inFile("day3/input.txt");
     if(!inFile.is_open()){
@@ -63,7 +66,11 @@ int day3_part1(){
         }
     }
 
+    auto end = std::chrono::steady_clock::now();
+    auto diff = end - start;
+
     cout << "Total priority for part 1 is: " << totalPriority << endl;
+    cout << "Finished in " << std::chrono::duration <double, std::milli> (diff).count() << " ms" << endl;
 
     inFile.close();
 
@@ -72,6 +79,7 @@ int day3_part1(){
 
 int day3_part2(){
     cout << "Running Day 3 Part 2..." << endl;
+    auto start = std::chrono::steady_clock::now();
     //open file
     ifstream inFile("day3/input.txt");
     if(!inFile.is_open()){
@@ -116,13 +124,18 @@ int day3_part2(){
         }
     }
 
+    auto end = std::chrono::steady_clock::now();
+    auto diff = end - start;
+
     cout << "Total priority for part 2 is: " << totalPriority << endl;
+    cout << "Finished in " << std::chrono::duration <double, std::milli> (diff).count() << " ms" << endl;
 
     return 0;
 }
 
 int day3_part2_newMethod(){
     cout << "Running Day 3 Part 2 New Method..." << endl;
+    auto start = std::chrono::steady_clock::now();
     //open file
     ifstream inFile("day3/input.txt");
     if(!inFile.is_open()){
@@ -176,7 +189,11 @@ int day3_part2_newMethod(){
         }
     }
 
+    auto end = std::chrono::steady_clock::now();
+    auto diff = end - start;
+
     cout << "Total priority for part 2 new method is: " << totalPriority << endl;
+    cout << "Finished in " << std::chrono::duration <double, std::milli> (diff).count() << " ms" << endl;
 
     return 0;
 }

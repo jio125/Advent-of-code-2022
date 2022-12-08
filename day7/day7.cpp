@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <chrono>
 
 using std::cin, std::cout, std::endl;
 using std::ifstream;
@@ -70,6 +71,7 @@ directory* readFilesystem(ifstream &inFile){
 
 int day7_part1(){
     cout << "Running Day 7 Part 1..." << endl;
+    auto start = std::chrono::steady_clock::now();
     ifstream inFile("day7/input.txt");
     if(!inFile.is_open()){
         cout << "Could not open file." << endl;
@@ -90,13 +92,18 @@ int day7_part1(){
         }
     }
 
+    auto end = std::chrono::steady_clock::now();
+    auto diff = end - start;
+
     cout << "Sum of directories with a maximum size of " << maxSize << ": " << sum << endl;
+    cout << "Finished in " << std::chrono::duration <double, std::milli> (diff).count() << " ms" << endl;
 
     return 0;
 }
 
 int day7_part2(){
     cout << "Running Day 7 Part 2..." << endl;
+    auto start = std::chrono::steady_clock::now();
     ifstream inFile("day7/input.txt");
     if(!inFile.is_open()){
         cout << "Could not open file." << endl;
@@ -125,7 +132,11 @@ int day7_part2(){
         }
     }
 
+    auto end = std::chrono::steady_clock::now();
+    auto diff = end - start;
+
     cout << "Size of directory to delete: " << dirToDelete->getSize() << endl;
+    cout << "Finished in " << std::chrono::duration <double, std::milli> (diff).count() << " ms" << endl;
 
     return 0;
 }

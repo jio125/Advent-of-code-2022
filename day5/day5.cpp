@@ -6,6 +6,7 @@
 #include <deque>
 #include <vector>
 #include <string>
+#include <chrono>
 
 using std::cin, std::cout, std::endl;
 using std::ifstream;
@@ -42,6 +43,7 @@ vector<stack<char>> readFile(ifstream& input){
 
 int day5_part1(){
     cout << "Running Day 5 Part 1..." << endl;
+    auto start = std::chrono::steady_clock::now();
     ifstream inFile("day5/input.txt");
     if(!inFile.is_open()){
         cout << "Could not open file." << endl;
@@ -83,13 +85,18 @@ int day5_part1(){
         tops.push_back(stacks.at(i).top());
     }
 
+    auto end = std::chrono::steady_clock::now();
+    auto diff = end - start;
+
     cout << "The top of each stack is: " << tops << endl;
+    cout << "Finished in " << std::chrono::duration <double, std::milli> (diff).count() << " ms" << endl;
 
     return 0;
 }
 
 int day5_part2(){
     cout << "Running Day 5 Part 2..." << endl;
+    auto start = std::chrono::steady_clock::now();
     ifstream inFile("day5/input.txt");
     if(!inFile.is_open()){
         cout << "Could not open file." << endl;
@@ -136,7 +143,11 @@ int day5_part2(){
         tops.push_back(stacks.at(i).top());
     }
 
+    auto end = std::chrono::steady_clock::now();
+    auto diff = end - start;
+
     cout << "The top of each stack is: " << tops << endl;
+    cout << "Finished in " << std::chrono::duration <double, std::milli> (diff).count() << " ms" << endl;
 
     return 0;
 }

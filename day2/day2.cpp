@@ -32,6 +32,7 @@ int day2_all(){
 
 int day2_part1(){
     cout << "Running Day 2 Puzzle 1..." << endl;
+    auto start = std::chrono::steady_clock::now();
     //Setup input file
     std::ifstream inFile("day2/input.txt");
     if(!inFile.is_open()){
@@ -80,7 +81,12 @@ int day2_part1(){
         inFile >> myMove;
     }
 
+    auto end = std::chrono::steady_clock::now();
+    auto diff = end - start;
+
     cout << "My puzzle 1 total score is: " << totalScore << endl;
+    cout << "Finished in " << std::chrono::duration <double, std::milli> (diff).count() << " ms" << endl;
+
     inFile.close();
     
     return 0;
@@ -88,6 +94,7 @@ int day2_part1(){
 
 int day2_part2(){
     cout << "Running Day 2 Puzzle 2..." << endl;
+    auto start = std::chrono::steady_clock::now();
     //Setup input file
     std::ifstream inFile("day2/input.txt");
     if(!inFile.is_open()){
@@ -146,7 +153,11 @@ int day2_part2(){
         inFile >> outcome;
     }
 
+    auto end = std::chrono::steady_clock::now();
+    auto diff = end - start;
+
     cout << "My puzzle 2 total score is: " << totalScore << endl;
+    cout << "Finished in " << std::chrono::duration <double, std::milli> (diff).count() << " ms" << endl;
 
     return 0;
 }

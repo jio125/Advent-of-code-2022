@@ -35,3 +35,11 @@ Run:
 `./build/Advent_of_code -h` for help.
 
 - See each day's subfolder for instructions on how to run specific puzzles
+
+## Timing
+
+Each days puzzles are timed using the `<chrono>` library.
+
+- Timing starts after `Running Day X Part X...` is printed to the terminal but before the input file is opened.
+- Timing stops after the calculation is completed but before the solution is printed to the terminal.
+- The time to execute is printed after the solution in milliseconds.

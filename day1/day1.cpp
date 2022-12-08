@@ -11,6 +11,7 @@ using std::cout, std::cin, std::endl;
 
 int day1() {
     cout << "Running Day 1 Puzzles 1 and 2..." << endl;
+    auto start = std::chrono::steady_clock::now();
     std::ifstream inFile("day1/input.txt");
     if(!inFile.is_open()){
         cout << "Cannot read file" << endl;
@@ -51,8 +52,12 @@ int day1() {
         }
     }
 
+    auto end = std::chrono::steady_clock::now();
+    auto diff = end - start;
+
     cout << "Puzzle 1: The largest number of calories is: " << max << endl;
     cout << "Puzzle 2: Sum of the three largest number of calories is: " << max + second + third << endl;
+    cout << "Finished in " << std::chrono::duration <double, std::milli> (diff).count() << " ms" << endl;
 
     return 0;
 }

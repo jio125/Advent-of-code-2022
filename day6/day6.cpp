@@ -4,6 +4,7 @@
 #include <fstream>
 #include <unordered_set>
 #include <list>
+#include <chrono>
 
 using std::list;
 using std::unordered_set;
@@ -24,6 +25,7 @@ bool checkDuplicates(list<char>& list){ //returns true if the given list has a d
 
 int day6_part1(){
     cout << "Running Day 6 Puzzle 1..." << endl;
+    auto start = std::chrono::steady_clock::now();
     ifstream inFile("day6/input.txt");
     if(!inFile.is_open()){
         cout << "Could not open file." << endl;
@@ -48,15 +50,18 @@ int day6_part1(){
         charsRead++;
     }
     
+    auto end = std::chrono::steady_clock::now();
+    auto diff = end - start;
 
-
-    cout << "Packet starts after character #" << charsRead << "." << endl;    
+    cout << "Packet starts after character #" << charsRead << "." << endl;  
+    cout << "Finished in " << std::chrono::duration <double, std::milli> (diff).count() << " ms" << endl;
 
     return 0;
 }
 
 int day6_part2(){
     cout << "Running Day 6 Puzzle 2..." << endl;
+    auto start = std::chrono::steady_clock::now();
     ifstream inFile("day6/input.txt");
     if(!inFile.is_open()){
         cout << "Could not open file." << endl;
@@ -80,8 +85,12 @@ int day6_part2(){
         charList.pop_front();
         charsRead++;
     }
+
+    auto end = std::chrono::steady_clock::now();
+    auto diff = end - start;
     
-    cout << "Message starts after character #" << charsRead << "." << endl;    
+    cout << "Message starts after character #" << charsRead << "." << endl; 
+    cout << "Finished in " << std::chrono::duration <double, std::milli> (diff).count() << " ms" << endl;
 
     return 0;
 }
