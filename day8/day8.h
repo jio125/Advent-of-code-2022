@@ -9,4 +9,4 @@ int day8_all();
 #define DAY8_PART2 day8_part2()
 #define DAY8_ALL day8_all()
 
-#endif //ADV_OF_CODE_DAY6_H
+#endif //ADV_OF_CODE_DAY8_H
