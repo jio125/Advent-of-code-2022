@@ -111,7 +111,7 @@ void Rope::moveKnots(){ //Can probably refactor this but thats for later
 int day9_part1(){
     cout << "Running Day 9 Part 1..." << endl;
     auto start = std::chrono::steady_clock::now();
-    ifstream inFile("../day9/input.txt");
+    ifstream inFile("day9/input.txt");
     if(!inFile.is_open()){
         cout << "Could not read file." << endl;
         return -1;
@@ -148,7 +148,7 @@ int day9_part1(){
 int day9_part2(){
     cout << "Running Day 9 Part 2..." << endl;
     auto start = std::chrono::steady_clock::now();
-    ifstream inFile("../day9/input.txt");
+    ifstream inFile("day9/input.txt");
     if(!inFile.is_open()){
         cout << "Could not read file." << endl;
         return -1;
