@@ -16,7 +16,7 @@ using std::string;
 using std::cout, std::cin, std::endl;
 using std::ifstream;
 
-#include "day3.h"
+#include "day03.h"
 
 int day3_all(){
     
@@ -31,7 +31,7 @@ int day3_part1(){
     cout << "Running Day 3 Part 1..." << endl;
     auto start = std::chrono::steady_clock::now();
     //open file
-    ifstream inFile("day3/input.txt");
+    ifstream inFile("day03/input.txt");
     if(!inFile.is_open()){
         cout << "Could not open file" << endl;
         return -1;
@@ -81,7 +81,7 @@ int day3_part2(){
     cout << "Running Day 3 Part 2..." << endl;
     auto start = std::chrono::steady_clock::now();
     //open file
-    ifstream inFile("day3/input.txt");
+    ifstream inFile("day03/input.txt");
     if(!inFile.is_open()){
         cout << "Could not open file" << endl;
         return -1;
@@ -137,7 +137,7 @@ int day3_part2_newMethod(){
     cout << "Running Day 3 Part 2 New Method..." << endl;
     auto start = std::chrono::steady_clock::now();
     //open file
-    ifstream inFile("day3/input.txt");
+    ifstream inFile("day03/input.txt");
     if(!inFile.is_open()){
         cout << "Could not open file" << endl;
         return -1;

@@ -1,4 +1,4 @@
-#include "day8.h"
+#include "day08.h"
 
 #include <iostream>
 #include <fstream>
@@ -16,7 +16,7 @@ using std::string;
 int day8_part1(){
     cout << "Running Day 8 Part 1..." << endl;
     auto start = std::chrono::steady_clock::now();
-    ifstream inFile("day8/input.txt");
+    ifstream inFile("day08/input.txt");
     if(!inFile.is_open()){
         cout << "Could not open file." << endl;
         return -1;
@@ -107,7 +107,7 @@ int day8_part1(){
 int day8_part2(){
     cout << "Running Day 8 Part 2..." << endl;
     auto start = std::chrono::steady_clock::now();
-    ifstream inFile("day8/input.txt");
+    ifstream inFile("day08/input.txt");
     if(!inFile.is_open()){
         cout << "Could not open file." << endl;
         return -1;

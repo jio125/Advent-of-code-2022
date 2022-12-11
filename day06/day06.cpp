@@ -1,4 +1,4 @@
-#include "day6.h"
+#include "day06.h"
 
 #include <iostream>
 #include <fstream>
@@ -26,7 +26,7 @@ bool checkDuplicates(list<char>& list){ //returns true if the given list has a d
 int day6_part1(){
     cout << "Running Day 6 Puzzle 1..." << endl;
     auto start = std::chrono::steady_clock::now();
-    ifstream inFile("day6/input.txt");
+    ifstream inFile("day06/input.txt");
     if(!inFile.is_open()){
         cout << "Could not open file." << endl;
         return -1;
@@ -62,7 +62,7 @@ int day6_part1(){
 int day6_part2(){
     cout << "Running Day 6 Puzzle 2..." << endl;
     auto start = std::chrono::steady_clock::now();
-    ifstream inFile("day6/input.txt");
+    ifstream inFile("day06/input.txt");
     if(!inFile.is_open()){
         cout << "Could not open file." << endl;
         return -1;

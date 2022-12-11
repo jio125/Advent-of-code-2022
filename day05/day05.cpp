@@ -1,4 +1,4 @@
-#include "day5.h"
+#include "day05.h"
 
 #include <iostream>
 #include <fstream>
@@ -44,7 +44,7 @@ vector<stack<char>> readFile(ifstream& input){
 int day5_part1(){
     cout << "Running Day 5 Part 1..." << endl;
     auto start = std::chrono::steady_clock::now();
-    ifstream inFile("day5/input.txt");
+    ifstream inFile("day05/input.txt");
     if(!inFile.is_open()){
         cout << "Could not open file." << endl;
         return -1;
@@ -97,7 +97,7 @@ int day5_part1(){
 int day5_part2(){
     cout << "Running Day 5 Part 2..." << endl;
     auto start = std::chrono::steady_clock::now();
-    ifstream inFile("day5/input.txt");
+    ifstream inFile("day05/input.txt");
     if(!inFile.is_open()){
         cout << "Could not open file." << endl;
         return -1;

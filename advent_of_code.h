@@ -4,15 +4,15 @@
 //This file links the main executible to each day's functions
 
 //import each day's code
-#include "day1/day1.h"
-#include "day2/day2.h"
-#include "day3/day3.h"
-#include "day4/day4.h"
-#include "day5/day5.h"
-#include "day6/day6.h"
-#include "day7/day7.h"
-#include "day8/day8.h"
-#include "day9/day9.h"
+#include "day01/day01.h"
+#include "day02/day02.h"
+#include "day03/day03.h"
+#include "day04/day04.h"
+#include "day05/day05.h"
+#include "day06/day06.h"
+#include "day07/day07.h"
+#include "day08/day08.h"
+#include "day09/day09.h"
 #include "day10/day10.h"
 
 #endif //ADVENT_OF_CODE_H

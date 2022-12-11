@@ -22,7 +22,7 @@ using std::cout, std::cin, std::endl;
 #include <fstream>
 #include <chrono>
 
-#include "day2.h"
+#include "day02.h"
 
 int day2_all(){
     day2_part1();
@@ -34,7 +34,7 @@ int day2_part1(){
     cout << "Running Day 2 Puzzle 1..." << endl;
     auto start = std::chrono::steady_clock::now();
     //Setup input file
-    std::ifstream inFile("day2/input.txt");
+    std::ifstream inFile("day02/input.txt");
     if(!inFile.is_open()){
         cout << "Cannot open file" << endl;
         return -1;
@@ -96,7 +96,7 @@ int day2_part2(){
     cout << "Running Day 2 Puzzle 2..." << endl;
     auto start = std::chrono::steady_clock::now();
     //Setup input file
-    std::ifstream inFile("day2/input.txt");
+    std::ifstream inFile("day02/input.txt");
     if(!inFile.is_open()){
         cout << "Cannot open file" << endl;
         return -1;

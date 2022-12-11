@@ -1,4 +1,4 @@
-#include "day7.h"
+#include "day07.h"
 #include "filesystem.h"
 
 #include <iostream>
@@ -72,7 +72,7 @@ directory* readFilesystem(ifstream &inFile){
 int day7_part1(){
     cout << "Running Day 7 Part 1..." << endl;
     auto start = std::chrono::steady_clock::now();
-    ifstream inFile("day7/input.txt");
+    ifstream inFile("day07/input.txt");
     if(!inFile.is_open()){
         cout << "Could not open file." << endl;
         return -1;
@@ -104,7 +104,7 @@ int day7_part1(){
 int day7_part2(){
     cout << "Running Day 7 Part 2..." << endl;
     auto start = std::chrono::steady_clock::now();
-    ifstream inFile("day7/input.txt");
+    ifstream inFile("day07/input.txt");
     if(!inFile.is_open()){
         cout << "Could not open file." << endl;
         return -1;

@@ -7,12 +7,12 @@ using std::string;
 using std::cout, std::cin, std::endl;
 
 #include "elf.h"
-#include "day1.h"
+#include "day01.h"
 
 int day1() {
     cout << "Running Day 1 Puzzles 1 and 2..." << endl;
     auto start = std::chrono::steady_clock::now();
-    std::ifstream inFile("day1/input.txt");
+    std::ifstream inFile("day01/input.txt");
     if(!inFile.is_open()){
         cout << "Cannot read file" << endl;
         return -1;

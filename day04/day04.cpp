@@ -1,4 +1,4 @@
-#include "day4.h"
+#include "day04.h"
 
 #include <iostream>
 #include <fstream>
@@ -22,7 +22,7 @@ int day4_part1(){
     cout << "Running Day 4 Puzzle 1..." << endl;
     auto start = std::chrono::steady_clock::now();
     //open file
-    ifstream inFile("day4/input.txt");
+    ifstream inFile("day04/input.txt");
     if(!inFile.is_open()){
         cout << "Could not open file." << endl;
         return -1;
@@ -62,7 +62,7 @@ int day4_part2(){
     cout << "Running Day 4 Puzzle 2..." << endl;
     auto start = std::chrono::steady_clock::now();
     //open file
-    ifstream inFile("day4/input.txt");
+    ifstream inFile("day04/input.txt");
     if(!inFile.is_open()){
         cout << "Could not open file." << endl;
         return -1;
