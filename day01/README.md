@@ -1,6 +1,6 @@
 # Day 1
 
-See [wiki](https://github.com/jio125/Advent-of-code-2022/wiki/Day-1) for puzzles and implementation notes.
+See [wiki](https://github.com/jio125/Advent-of-code-2022/wiki/Day-1-Calorie-Counting) for puzzles and implementation notes.
 
 ## How to run
 
