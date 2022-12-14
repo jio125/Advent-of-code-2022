@@ -8,7 +8,7 @@ using std::cout, std::cin, std::endl;
 int main(int argc, char **argv) {
     cout << "Welcome to the Advent of Code 2022 project!" << endl;
 
-    if(strcmp(argv[1], "-h") == 0){
+    if(argc == 1 || strcmp(argv[1], "-h") == 0){
         cout << "Advent_of_code <Day> <Puzzle>" << endl;
         cout << "-h Help" << endl;
         cout << "See github repo for more details." << endl;
