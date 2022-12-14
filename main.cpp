@@ -177,6 +177,21 @@ int main(int argc, char **argv) {
             }
             break;
     case 11:
+        switch(arg2){ //
+                case 0:
+                    DAY11_ALL;
+                    break;
+                case 1:
+                    DAY11_PART1;
+                    break;
+                case 2:
+                    DAY11_PART2;
+                    break;
+                default:
+                    cout << "Invalid puzzle input \"" << arg2 << "\". Please choose between 0-2." << endl;
+                    break;
+            }
+            break;
     case 12:
     case 13:
     case 14:

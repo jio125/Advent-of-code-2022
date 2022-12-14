@@ -14,5 +14,6 @@
 #include "day08/day08.h"
 #include "day09/day09.h"
 #include "day10/day10.h"
+#include "day11/day11.h"
 
 #endif //ADVENT_OF_CODE_H
