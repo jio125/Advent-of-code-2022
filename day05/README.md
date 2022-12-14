@@ -1,6 +1,6 @@
 # Day 5
 
-See [wiki](https://github.com/jio125/Advent-of-code-2022/wiki/Day-5) for puzzles and implementation notes.
+See [wiki](https://github.com/jio125/Advent-of-code-2022/wiki/Day-5-----Supply-Stacks) for puzzles and implementation notes.
 
 ## How to run
 

@@ -1,6 +1,6 @@
 # Day 4
 
-See [wiki](https://github.com/jio125/Advent-of-code-2022/wiki/Day-4) for puzzles and implementation notes.
+See [wiki](https://github.com/jio125/Advent-of-code-2022/wiki/Day-4-Camp-Cleanup) for puzzles and implementation notes.
 
 ## How to run
 

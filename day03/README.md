@@ -1,6 +1,6 @@
 # Day 3
 
-See [wiki](https://github.com/jio125/Advent-of-code-2022/wiki/Day-3) for puzzles and implementation notes.
+See [wiki](https://github.com/jio125/Advent-of-code-2022/wiki/Day-3-Rucksack-Reorganization) for puzzles and implementation notes.
 
 ## How to run
 

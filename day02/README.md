@@ -1,6 +1,6 @@
 # Day 2
 
-See [wiki](https://github.com/jio125/Advent-of-code-2022/wiki/Day-2) for puzzles and implementation notes.
+See [wiki](https://github.com/jio125/Advent-of-code-2022/wiki/Day-2-Rock-Paper-Scissors) for puzzles and implementation notes.
 
 ## How to run
 

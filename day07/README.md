@@ -1,6 +1,6 @@
 # Day 7
 
-See [wiki](https://github.com/jio125/Advent-of-code-2022/wiki/Day-7) for puzzles and implementation notes.
+See [wiki](https://github.com/jio125/Advent-of-code-2022/wiki/Day-7-No-Space-Left-On-Device) for puzzles and implementation notes.
 
 ## How to run
 

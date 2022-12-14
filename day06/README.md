@@ -1,6 +1,6 @@
 # Day 6
 
-See [wiki](https://github.com/jio125/Advent-of-code-2022/wiki/Day-6) for puzzles and implementation notes.
+See [wiki](https://github.com/jio125/Advent-of-code-2022/wiki/Day-6-Tuning-Trouble) for puzzles and implementation notes.
 
 ## How to run
 

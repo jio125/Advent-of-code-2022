@@ -1,6 +1,6 @@
 # Day 8
 
-See [wiki](https://github.com/jio125/Advent-of-code-2022/wiki/Day-8) for puzzles and implementation notes.
+See [wiki](https://github.com/jio125/Advent-of-code-2022/wiki/Day-8-Treetop-Tree-House) for puzzles and implementation notes.
 
 ## How to run
 
