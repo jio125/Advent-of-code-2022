@@ -1,8 +1,8 @@
 # Advent of code 2022
 
-![Current Day Badge](https://img.shields.io/badge/day%20📅-14-blue)
-![Stars Badge](https://img.shields.io/badge/stars%20⭐-22-yellow)
-![Days Completed Badge](https://img.shields.io/badge/days%20completed-11-red)
+![Current Day Badge](https://img.shields.io/badge/day%20📅-15-blue)
+![Stars Badge](https://img.shields.io/badge/stars%20⭐-24-yellow)
+![Days Completed Badge](https://img.shields.io/badge/days%20completed-12-red)
 
 Repository for [Advent of Code 2022](https://adventofcode.com/)
 
