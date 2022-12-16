@@ -22,13 +22,13 @@ struct listItem{
     dataType type;
     int val = -1; //value if it is a number
     vector<listItem> data; //list if it is a list
-    bool operator<(const listItem& right){
+    bool operator<(listItem& right){
         if(type == list && right.type == list){ //compare lists
             for(int i = 0; i < data.size(); i++){
                 if(i >= right.data.size()) return false; //right side ran out of items first
                 if(data.at(i) < right.data.at(i)) return true;
                 if(data.at(i) == right.data.at(i)) continue;
-                if(data.at(i) > right.data.at(i)) return false; 
+                return false;
             }
             return true; //left side ran out of items first
         }
@@ -37,20 +37,30 @@ struct listItem{
         }
         else{ // compare list vs int
             if(type == num){ //convert this to list
-                return (val < right.data.at(0).val);
+                // return (val < right.data.at(0).val);
+                type = list;
+                listItem n  = {.type = num};
+                n.val = val;
+                data.push_back(n);
+                return (data.at(0) < right.data.at(0));
             }
             else{ // convert right to list
-                return (data.at(0).val < right.val);
+                // return (data.at(0).val < right.val);
+                right.type = list;
+                listItem n = {.type = num};
+                n.val = right.val;
+                right.data.push_back(n);
+                return (data.at(0) < right.data.at(0));
             }
         }
     }
-    bool operator>(const listItem& right){
+    bool operator>(listItem& right){
         if(type == list && right.type == list){ //compare lists
             for(int i = 0; i < data.size(); i++){
-                if(i <= right.data.size()) return false; //right side ran out of items first
+                if(i >= right.data.size()) return true; //right side ran out of items first
                 if(data.at(i) > right.data.at(i)) return true;
                 if(data.at(i) == right.data.at(i)) continue;
-                if(data.at(i) < right.data.at(i)) return false; 
+                return false;
             }
             return true; //left side ran out of items first
         }
@@ -66,24 +76,34 @@ struct listItem{
             }
         }
     }
-    bool operator==(const listItem& right){
+    bool operator==(listItem& right){
         if(type == list && right.type == list){ //compare lists
             if(data.size() != right.data.size()) return false; //not the same size
             for(int i = 0; i < data.size(); i++){
-                if(data.at(i) < right.data.at(i)) return false;
-                if(data.at(i) == right.data.at(i)) return true;
-                if(data.at(i) > right.data.at(i)) return false; 
+                if(data.at(i) == right.data.at(i)) continue;
+                return false;
             }
+            return true;
         }
         else if(type == num && right.type == num){ //compare ints
             return (val == right.val);
         }
         else{ // compare list vs int
             if(type == num){ //convert this to list
-                return (val == right.data.at(0).val);
+                // return (val < right.data.at(0).val);
+                type = list;
+                listItem n  = {.type = num};
+                n.val = val;
+                data.push_back(n);
+                return (data.at(0) == right.data.at(0));
             }
             else{ // convert right to list
-                return (data.at(0).val == right.val);
+                // return (data.at(0).val < right.val);
+                right.type = list;
+                listItem n = {.type = num};
+                n.val = right.val;
+                right.data.push_back(n);
+                return (data.at(0) == right.data.at(0));
             }
         }
     }
@@ -114,7 +134,7 @@ void parse(stringstream& line, listItem& packet){
 
 int day13_part1(){
     cout << "Running Day 13 Part 1..." << endl;
-    ifstream inFile("../day13/test.txt");
+    ifstream inFile("../day13/input.txt");
     if(!inFile.is_open()){
         cout << "Could not open file" << endl;
         return -1;
@@ -143,6 +163,8 @@ int day13_part1(){
         getline(inFile, currLine); // skip blank line
         getline(inFile, currLine);
     }
+
+    cout << "Sum of packet indexes that are in the right order: " << indexSum << endl;
 
     return 0;
 }
