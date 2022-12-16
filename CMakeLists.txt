@@ -16,3 +16,6 @@ target_sources(Advent_of_code PRIVATE day09/day09.h day09/day09.cpp day09/rope.h
 target_sources(Advent_of_code PRIVATE day10/day10.h day10/day10.cpp)
 target_sources(Advent_of_code PRIVATE day11/day11.h day11/day11.cpp)
 target_sources(Advent_of_code PRIVATE day12/day12.h day12/day12.cpp)
+target_sources(Advent_of_code PRIVATE day13/day13.h day13/day13.cpp)
+
+add_executable(day13_test day13/main.cpp day13/day13.h day13/day13.cpp)
