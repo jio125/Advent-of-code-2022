@@ -30,6 +30,7 @@ struct listItem{
                 if(data.at(i) == right.data.at(i)) continue;
                 return false;
             }
+            if(data.size() == right.data.size()) return false; //lists are equal not less
             return true; //left side ran out of items first
         }
         else if(type == num && right.type == num){ //compare ints
@@ -42,7 +43,7 @@ struct listItem{
                 listItem n  = {.type = num};
                 n.val = val;
                 data.push_back(n);
-                return (data.at(0) < right.data.at(0));
+                return (*this < right);
             }
             else{ // convert right to list
                 // return (data.at(0).val < right.val);
@@ -50,18 +51,19 @@ struct listItem{
                 listItem n = {.type = num};
                 n.val = right.val;
                 right.data.push_back(n);
-                return (data.at(0) < right.data.at(0));
+                return (*this < right);
             }
         }
     }
     bool operator>(listItem& right){
         if(type == list && right.type == list){ //compare lists
             for(int i = 0; i < data.size(); i++){
-                if(i >= right.data.size()) return true; //right side ran out of items first
+                if(i >= right.data.size()) return false; //right side ran out of items first
                 if(data.at(i) > right.data.at(i)) return true;
                 if(data.at(i) == right.data.at(i)) continue;
                 return false;
             }
+            if(data.size() == right.data.size()) return false; //lists are equal not less
             return true; //left side ran out of items first
         }
         else if(type == num && right.type == num){ //compare ints
@@ -69,10 +71,18 @@ struct listItem{
         }
         else{ // compare list vs int
             if(type == num){ //convert this to list
-                return (val > right.data.at(0).val);
+                type = list;
+                listItem n  = {.type = num};
+                n.val = val;
+                data.push_back(n);
+                return (*this > right);
             }
             else{ // convert right to list
-                return (data.at(0).val > right.val);
+                right.type = list;
+                listItem n = {.type = num};
+                n.val = right.val;
+                right.data.push_back(n);
+                return (*this > right);
             }
         }
     }
