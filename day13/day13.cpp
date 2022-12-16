@@ -12,6 +12,7 @@ using std::replace;
 using std::vector;
 #include <sstream>
 using std::stringstream;
+#include <chrono>
 
 enum dataType{
     list,
@@ -105,7 +106,7 @@ struct listItem{
                 listItem n  = {.type = num};
                 n.val = val;
                 data.push_back(n);
-                return (data.at(0) == right.data.at(0));
+                return (*this == right);
             }
             else{ // convert right to list
                 // return (data.at(0).val < right.val);
@@ -113,11 +114,15 @@ struct listItem{
                 listItem n = {.type = num};
                 n.val = right.val;
                 right.data.push_back(n);
-                return (data.at(0) == right.data.at(0));
+                return (*this == right);
             }
         }
     }
 };
+
+bool compareListItem(listItem left, listItem right){
+    return (left < right);
+}
 
 void parse(stringstream& line, listItem& packet){
     while(true){
@@ -144,7 +149,8 @@ void parse(stringstream& line, listItem& packet){
 
 int day13_part1(){
     cout << "Running Day 13 Part 1..." << endl;
-    ifstream inFile("../day13/input.txt");
+    auto startTime = std::chrono::steady_clock::now();
+    ifstream inFile("day13/input.txt");
     if(!inFile.is_open()){
         cout << "Could not open file" << endl;
         return -1;
@@ -174,12 +180,66 @@ int day13_part1(){
         getline(inFile, currLine);
     }
 
+    auto endTime = std::chrono::steady_clock::now();
+    auto diff = endTime - startTime;
+
     cout << "Sum of packet indexes that are in the right order: " << indexSum << endl;
+    cout << "Finished in " << std::chrono::duration <double, std::milli> (diff).count() << " ms" << endl;
 
     return 0;
 }
 
 int day13_part2(){
+    cout << "Running Day 13 Part 2..." << endl;
+    auto startTime = std::chrono::steady_clock::now();
+    ifstream inFile("day13/input.txt");
+    if(!inFile.is_open()){
+        cout << "Could not open file" << endl;
+        return -1;
+    }
+
+    vector<listItem> packets; //store all packets
+    string currLine;
+    getline(inFile, currLine);
+    while(!inFile.eof()){
+        replace(currLine.begin(), currLine.end(), ',', ' '); //replace commas with a space
+        listItem packet = {.type = list}; //create left as a list type
+        stringstream line(currLine);
+        line.ignore(1); // skip first open bracket
+        parse(line, packet);
+        packets.push_back(packet);
+        getline(inFile, currLine);
+        if(currLine == "") getline(inFile, currLine); // skip blank lines
+    }
+
+    listItem decoder1 = {.type = list, .val = -2};
+    stringstream s("[2]]");
+    parse(s, decoder1);
+    listItem decoder2 = {.type = list, .val = -6};
+    stringstream s1("[6]]");
+    parse(s1, decoder2);
+    packets.push_back(decoder1);
+    packets.push_back(decoder2);
+
+    std::sort(packets.begin(), packets.end(), compareListItem);
+
+    int indexMult, div1, div2;
+    for(int i = 0; i < packets.size(); i++){
+        if(packets.at(i) == decoder1){
+            div1 = i+1;
+        }
+        if(packets.at(i) == decoder2){
+            div2 = i+1;
+        }
+    }
+    indexMult = div1*div2;
+
+    auto endTime = std::chrono::steady_clock::now();
+    auto diff = endTime - startTime;
+
+    cout << "Product of divider packet indexes is: " << indexMult << endl;
+    cout << "Finished in " << std::chrono::duration <double, std::milli> (diff).count() << " ms" << endl;
+
     return 0;
 }
 
